@@ -1,0 +1,199 @@
+<!--
+  Generated template for the UpdateProfile page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+   <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>PROFILE</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="" style="height: 250px; padding-top: 15px; text-align: center;">
+      <img src="{{base_url}}{{subscriber_avatar}}" style="height: 150px; width:150px;  border-radius: 50%; margin-left: auto; margin-right: auto;"(click)="openProfilePicture()">  
+      <div style="text-align: center; color: white; margin-top: 10px;">
+          <div style="color:#161616;">
+              {{customer.membership}}  
+          </div>
+          <div>
+              <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon>
+              <strong style="color:#000;">{{customer.name}}</strong>
+              <div style="color:#000;">
+                <i>{{customer.email}}</i>
+                <i>{{customer.phone}}</i>
+              </div>
+          </div>
+      </div> 
+  </div>
+
+<!-- <ion-grid>
+  <ion-row>
+    <ion-col col-4><img class="full" src="assets/images/allFruit.jpg" style="border-radius:30%;"></ion-col>
+    <ion-col col-8>
+     <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon>
+     <strong>{{customer.name}}</strong>
+     <i>{{customer.email}}</i>
+     <i>{{customer.phone}}</i>
+  </ion-col>
+  </ion-row>
+</ion-grid> -->
+
+<!--	
+<ion-item>
+  <ion-label>Edit Profile</ion-label>
+  <ion-toggle [(ngModel)]="toggleStatus"></ion-toggle>
+</ion-item>
+-->
+
+<div>
+  <ion-segment [(ngModel)]="updateSegment">
+    <ion-segment-button value="profile">
+      Profile
+    </ion-segment-button>
+    <ion-segment-button value="password">
+      Password
+    </ion-segment-button>
+    <!--<ion-segment-button value="avatar">
+      Avatar
+    </ion-segment-button>-->
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="updateSegment">
+
+<!--<div padding *ngIf="toggleStatus">-->
+  <form (ngSubmit)="update(customer)" #updateForm="ngForm" *ngSwitchCase="'profile'">
+  <ion-list class="mid-pos">
+
+    <ion-item>
+      <ion-label floating>First Name</ion-label>
+      <ion-input [(ngModel)] ="customer.firstname" name="firstname" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Last Name</ion-label>
+      <ion-input [(ngModel)] ="customer.lastname" name="lastname" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Date of birth</ion-label>
+      <ion-input [(ngModel)] ="customer.dob" name="dob" type="text"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>Sex</ion-label>
+      <ion-select [(ngModel)]="customer.sex" name="sex" required>
+        <ion-option value="Male">Male</ion-option>
+        <ion-option value="Female">Female</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Country - {{customer.country}}</ion-label>
+      <ion-select [(ngModel)]="customer.country" (ngModelChange)="getStates(customer.country)" name="country" required>
+        <ion-option *ngFor="let country of countries" value="{{country.country}}">{{country.country}}</ion-option>
+        
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>State - {{customer.state}}</ion-label>
+      <ion-select [(ngModel)]="customer.state" name="state" required>
+        <ion-option *ngFor="let state of states" value="{{state.state}}">{{state.state}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <!--<ion-item>
+      <ion-label floating>City</ion-label>
+      <ion-input [(ngModel)] ="customer.city" name="city"  type="text" required></ion-input>
+    </ion-item>-->
+
+
+    <ion-item>
+      <ion-label floating>Address</ion-label>
+      <ion-input [(ngModel)] ="customer.address" name="address"  type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input [(ngModel)] ="customer.email" name="email"  type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Phone</ion-label>
+      <ion-input [(ngModel)] ="customer.phone" name="phone"  type="tel"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input [(ngModel)] ="customer.password" name="password"  type="password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6><button ion-button round type="submit" class="darker-black" [disabled]="!updateForm.form.valid">Update</button></ion-col>
+    </ion-row>
+  </ion-grid>
+  </form>
+  <!--</div>-->
+
+  <!--<div padding *ngIf="toggleStatus">-->
+  <form (ngSubmit)="updatePassword(password)" #passwordForm="ngForm" *ngSwitchCase="'password'">
+  <ion-list class="mid-pos">
+
+    <ion-item>
+      <ion-label floating>Current Password</ion-label>
+      <ion-input [(ngModel)] ="password.password" name="password"  type="password" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>New Password</ion-label>
+      <ion-input [(ngModel)] ="password.newPassword" name="newPassword"  type="password" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Confirm New Password</ion-label>
+      <ion-input [(ngModel)] ="password.confirmPassword" name="confirmPassword"  type="password" required></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6><button ion-button round type="submit"  class="darker-black"  [disabled]="!passwordForm.form.valid">Update</button></ion-col>
+    </ion-row>
+  </ion-grid>
+  </form>
+  <!--</div>-->
+
+  <!-- <div *ngSwitchCase="'avatar'">
+    <ion-list class="mid-pos">
+      <ion-item>
+
+     
+    <ion-content padding>
+      
+    </ion-content>
+     
+          <button ion-button class="darker-black" style="height:40px;width: 90%;margin:0 auto;" icon-leftclick="" (click)="presentActionSheet()">
+            <ion-icon name="camera"></ion-icon> Upload Profile Picture
+          </button>
+          
+      </ion-item>
+
+    </ion-list>
+  </div>
+  -->
+<!--</div>-->
+
+</div>
+
+</ion-content>
+

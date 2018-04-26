@@ -1,0 +1,63 @@
+<!--
+  Generated template for the Offers page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>OFFERS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!--
+  <ion-grid>
+    <ion-row>
+      <ion-col >
+        <ion-searchbar [showCancelButton]="Cancel" placeholder="Filter by Location" (ionInput)="filter($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
+  -->
+
+  <ion-item>
+    <ion-label>Filter by Location</ion-label>
+    <ion-select [(ngModel)]="city" (ngModelChange)="filterByLocation()">
+      <ion-option selected value="0">All</ion-option>
+      <ion-option value="{{city.city}}" *ngFor="let city of cities">{{city.city}}</ion-option>
+    </ion-select>
+  </ion-item>  
+  <ion-item>
+    <ion-label>Filter by Membership</ion-label>
+    <ion-select [(ngModel)]="membership" (ngModelChange)="filterByMembership()">
+      <ion-option selected value="0">All</ion-option>
+      <ion-option value="{{membership.membership}}" *ngFor="let membership of memberships">{{membership.membership}}</ion-option>
+      <ion-option value="Affinity Privé">Affinity Privé</ion-option>
+    </ion-select>
+  </ion-item>
+        
+  <ion-list>
+    <ion-item *ngFor="let offer of offers" (click)="showOfferDetails('Offer', offer)">
+      <ion-thumbnail item-left>
+      <!-- {{base_url}}{{group.avatar || 'images/no_image.png'}} -->
+      <div class="image-small">
+        <img src="{{base_url}}{{offer.avatar || 'images/no_image.png'}}">
+        </div>
+      </ion-thumbnail>
+      <h2>{{offer.tagline}}</h2>
+      
+      <div>
+        <p style="color:#f00;">{{offer.target_members}}</p>
+        <p>By: {{offer.name}}, {{offer.city}}</p>
+        <p><span><ion-icon name="time"></ion-icon>  {{offer.start_date}} to {{offer.end_date}}</span></p>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

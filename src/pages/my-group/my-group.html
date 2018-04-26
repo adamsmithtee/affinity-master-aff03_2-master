@@ -1,0 +1,49 @@
+
+<!--
+  Generated template for the EventPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      MY GROUPS
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="card-background-page">
+
+<!-- <ion-card *ngFor="let group of customerGroups" (click)="viewEvent(group.group_id)">
+  <div class="image">
+    <img src="{{base_url}}{{group.avatar || 'images/no_image.png'}}"/>
+  </div>
+  <div class="card-title">{{group.name}}</div>
+  <div class="card-subtitle" style="color:black">{{group.details}}</div>
+</ion-card> -->
+
+<ion-list>
+  <ion-item-sliding *ngFor="let group of customerGroups" >
+    <ion-item style="overflow:hidden;word-break:break-word;" (click)="showDirective()">
+      <ion-avatar item-left>  
+        <div class="image-small">
+          <img style="width:100% !important;height:100% !important;" src="{{base_url}}{{group.avatar || 'images/no_image.png'}}">
+         </div> 
+      </ion-avatar>   
+      <h2>{{group.name}}</h2>
+      <p>{{group.details}}</p>
+      
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="primary" (click)="leaveGroup(group.group_id)">
+        <ion-icon name="text"></ion-icon>
+        Leave Group
+      </button>
+   </ion-item-options> 
+  </ion-item-sliding>   
+</ion-list>
+
+</ion-content>

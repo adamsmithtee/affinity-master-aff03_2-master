@@ -1,0 +1,80 @@
+page-login {
+	@keyframes animatedBackground {
+		from { background-position: 0 0; }
+		to { background-position: 100% 0; }
+	}
+
+	.logo{
+		width:150px;
+		height:150px;
+		margin: 30px auto 20px auto;
+	}
+	.logo img{
+		width:100%;
+	}
+	button{
+		width:100%;
+	}
+	/*.background{
+		background-image: url('../../assets/images/bg1.jpg');
+		background-size: 100%;
+	}
+	.slide1{
+		background: url('../assets/images/eko2.jpg') no-repeat center center fixed; 
+		  -webkit-background-size: cover;
+		  -moz-background-size: cover;
+		  -o-background-size: cover;
+		  background-size: cover;
+	}
+	*/
+	.content{
+		padding: 30px;
+	    /*background-color: rgba(0, 0, 0, 0.67);
+    	padding-bottom: 150px;*/
+	}
+	/***.slide1{
+		background: url('../assets/images/map.png') center center fixed; 
+		background-position: 0px 0px;
+		background-repeat: repeat-x;
+		animation: animatedBackground 40s linear infinite;
+		  -webkit-background-size: cover;
+		  -moz-background-size: cover;
+		  -o-background-size: cover;
+		  background-size: cover;
+	}*/
+	// .item{
+	// 	background-color: rgba(0, 0, 0, 0.40);
+	// 	color: white;
+	// }
+	.list-ios > .item-block:last-child{
+		border-bottom: none;
+	}
+	.slide2{
+		background: url('../assets/images/eko.jpg') no-repeat ; 
+	}
+	.slide3{
+		background: url('../assets/images/hotel.jpg'); 
+	}
+	.but-clear{
+	    border-color: white;
+		color: white;
+	}
+	.white-text{
+		color: white;
+	}
+	.mid-pos{
+		margin-top:35px;
+	}
+	.toolbar-background{
+		background-color: #f8f8f8;
+	}
+	.before-white{
+		color: #000000
+	}
+	.center{
+		text-align: center;
+	}
+	ion-icon{
+		padding-right: 10px;
+	}
+}

@@ -1,0 +1,55 @@
+<!--
+  Generated template for the Groups page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>MY EVENTS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+  <ion-item-sliding *ngFor="let event of customerEvents">
+    <ion-item  (click)="showDirective()">
+      <ion-avatar item-left>
+        <div class="image-small">
+          <img src="{{base_url}}{{event.avatar || 'images/no_image.png'}}">
+        </div>
+      </ion-avatar>
+      <h2 text-uppercase>{{event.name}}</h2>
+      <p><i>{{event.description}}</i></p>
+      <div>
+        <span float-left><ion-icon name="pin"></ion-icon> {{event.location}}</span>
+        <span float-right><ion-icon name="time"></ion-icon> {{event.date}} {{event.time}}</span>
+      </div>
+      
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="primary" (click)="leaveEvent(event.event_id)">
+        <ion-icon name="text"></ion-icon>
+        Leave
+      </button>
+
+      
+      <!--
+      <button ion-button color="secondary">
+        <ion-icon name="call"></ion-icon>
+        Not Attend
+      </button>
+      -->
+    </ion-item-options>
+    <!-- <ion-item-options side="right">
+      <button ion-button color="primary">
+        <ion-icon name="mail"></ion-icon>
+        Email
+      </button>
+    </ion-item-options> -->
+  </ion-item-sliding>
+</ion-list>
+</ion-content>

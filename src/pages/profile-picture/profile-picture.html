@@ -1,0 +1,11 @@
+
+
+<ion-content padding>
+	<div id="myHeader">
+		<ion-icon class="customIcon" name="arrow-back" float-left  (click)="closeModal()"> <span style="padding-left: 10px;"> Profile photo </span></ion-icon> <ion-icon style="margin-right: 15px;width:30px;height:40px;" name="create" float-right  (click)="presentActionSheet()"></ion-icon>
+	</div>
+
+	<div id="profilePicture">
+		<img src="{{base_url}}{{image || 'images/profile.png'}}" style="height: 400px; width:100%;"/>  
+	</div>	
+</ion-content>

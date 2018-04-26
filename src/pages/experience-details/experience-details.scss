@@ -1,0 +1,22 @@
+page-details {
+	.name{
+		font-size:large;
+	}
+	.head_div{
+		height:200px;
+		overflow:hidden;
+	}
+	ion-col, .msg{
+		font-size:large;
+	}
+	.small{
+		font-size:smaller
+	}
+	ion-icon{
+		margin-right:10px;
+	}
+    .sample-modal-page {
+        padding: 30px;
+        background: rgba(0,0,0,0.5);
+    }
+}

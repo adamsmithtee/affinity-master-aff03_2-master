@@ -1,0 +1,125 @@
+page-Card {
+	.bg{
+		background-color: rgba(181, 128, 54, 0.18);
+	}
+	.action_button{
+		width:100%;
+	}
+	.item-inner{
+		box-shadow: none;
+	}
+	.square-100{
+		width: 120px;
+		height : 120px;
+		padding-top : 18px;
+		text-align:center;
+	}
+	.round{
+		border-radius: 50%;
+	    border: 2px solid #b58036;
+	    background-color: rgba(255, 255, 255, 0.90);
+	}
+	.square-100 div img{
+		height:36px;
+	}
+	.round:hover,.round:active{
+		background-color: #b58036;
+		color:white;
+	}
+	.auto_margin{
+	    margin-right: auto;
+    	margin-left: auto;
+	}
+	#hideIcon:hover{
+		color: #a67f42 !important;
+	}
+	.member-card-front{
+		margin-top: 50px;
+		
+	}
+	
+	@media screen and (min-width: 590px) {
+		.center-div{
+			-webkit-box-align:center;
+		    -webkit-box-pack:center;
+		    display:-webkit-box;
+		}
+		#name{
+			margin-top: -82px;
+		    margin-left: -128px;
+		    color: #1b1a1a;
+		    text-shadow: 2px 0px 0px #6f6565;
+		    z-index: 99 !important;
+		    position: relative;
+		    font-size: 19px;
+		    text-transform: uppercase;
+		    font-weight: 100 !important;
+		    font-family: "Courier New", Courier, monospace !important;
+		    
+		    -webkit-box-align:center;
+		    -webkit-box-pack:center;
+		    display:-webkit-box;
+		}
+
+		#number{
+			margin-top: -90px;
+		    margin-left: -145px;
+		    color: #1b1a1a;
+		    text-shadow: 2px 0px 0px #6f6565;
+		    z-index: 99 !important;
+		    position: relative;
+		    font-size: 18px;
+		    font-family: "Courier New", Courier, monospace !important;
+		    text-transform: uppercase;
+		    font-weight: 100 !important;
+
+		    -webkit-box-align:center;
+		    -webkit-box-pack:center;
+		    display:-webkit-box;
+		}
+	}	
+
+	#card-img{
+		width: 400px;
+		height: 252px;
+	}
+
+	@media screen and (max-width: 590px) {
+	    #card-img {
+	    	width: 350px !important;
+	        height: 239px !important;
+	        margin-top: 110px;
+	    }
+
+	    #name{
+		margin-top: -73px;
+		padding-left: 21px;
+	    color: #1b1a1a;
+	    text-shadow: 2px 0px 0px #6f6565;
+	    z-index: 99 !important;
+	    position: relative;
+	    font-size: 15px;
+	    text-transform: uppercase;
+    	font-weight: 100 !important;
+    	font-family: "Courier New", Courier, monospace !important;
+    	
+	}
+
+	#number{
+		margin-top: -77px;
+		padding-left: 23px;
+	    color: #1b1a1a;
+	    text-shadow: 2px 0px 0px #6f6565;
+	    z-index: 99 !important;
+	    position: relative;
+	    font-size: 14px;
+	    font-family: "Courier New", Courier, monospace !important;
+	    text-transform: uppercase;
+    	font-weight: 100 !important;
+	}
+	}
+
+	.center-div{
+
+	}
+}

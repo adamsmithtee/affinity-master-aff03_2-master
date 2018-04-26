@@ -1,0 +1,65 @@
+<!--
+  Generated template for the Groups page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      EVENTS
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="card-background-page">
+
+	<ion-list>
+	  <ion-item-sliding *ngFor="let event of events">
+	    <ion-item (click)="showDirective()">
+	      <ion-avatar item-left>
+	      	<div class="image-small">
+	        	<img src="{{base_url}}{{event.avatar || 'images/no_image.png'}}">
+        	</div>
+	      </ion-avatar>
+	      <h2>{{event.name}}</h2>
+	      <div>
+	      	<p><span float-left><ion-icon name="pin"></ion-icon> {{event.location}}</span></p>
+	      	<p><span float-right><ion-icon name="time"></ion-icon> {{event.date}} {{event.time}}</span></p>
+	      </div>
+	      
+	    </ion-item>
+	    <ion-item-options side="right">
+	      <button ion-button class="darker-black" (click)="attending(event.event_id)" *ngIf="event.customer_id == null">
+	        <ion-icon name="text"></ion-icon>
+	        Attend
+	      </button>
+	      <button ion-button class="light-black" (click)="showDetails(event)" >
+	        <ion-icon name="text"></ion-icon>
+	        Details
+	      </button>
+
+	      <!-- <button ion-button color="primary" *ngIf="event.customer_id !== null">
+	        <ion-icon name="text"></ion-icon>
+	        Attending
+	      </button>  -->
+
+	      
+	      <!--
+	      <button ion-button color="secondary">
+	        <ion-icon name="call"></ion-icon>
+	        Not Attend
+	      </button>
+	      -->
+	    </ion-item-options>
+	    <!-- <ion-item-options side="right">
+	      <button ion-button color="primary">
+	        <ion-icon name="mail"></ion-icon>
+	        Email
+	      </button>
+	    </ion-item-options> -->
+	  </ion-item-sliding>
+	</ion-list>
+</ion-content>

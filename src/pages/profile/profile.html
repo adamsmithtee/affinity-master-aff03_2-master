@@ -1,0 +1,168 @@
+<!--
+  Generated template for the Profile page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+  	<button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>The Affinity Club</ion-title>
+  	<ion-buttons (click)="updateProfile()" end>
+      <button ion-button icon-only>
+        <ion-icon name="person"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  	<!-- <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="lock"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+ </ion-header>
+
+<!---Test item-->
+<!-- <ion-item *ngFor="let group of customerGroups">
+    <ion-thumbnail item-left>
+      <img src="assets/images/ev3.jpg">
+    </ion-thumbnail>
+    <h2>{{group.name}}</h2>
+    <p>{{group.details}}</p>
+    <button color="primary" ion-button clear item-right (click)="joinGroup(group.group_id)" *ngIf="group.customer_id == null">JOIN</button>
+</ion-item> -->
+<!--End of test item -->
+<ion-content>
+	<ion-refresher (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content>
+		</ion-refresher-content>
+	</ion-refresher>
+		
+
+		<!-- <ion-row>
+		    <ion-col col-12>
+		    	<div class="home-grid-title background-primary color-bright">Offers & Experiences</div>
+		    </ion-col>
+	    </ion-row> -->
+
+		<!--
+	    <ion-item>
+		    <ion-label>Filter List</ion-label>
+		    <ion-select [(ngModel)]="filter" (ngModelChange)="filterList()">
+		      <ion-option selected value="0">All</ion-option>
+		      <ion-option value="Merchants" >Popular Merchants</ion-option>
+		      <ion-option value="Offers" >Recent Offers</ion-option>
+		      <ion-option value="Groups" >Popular Groups</ion-option>
+		      <ion-option value="Events" >Popular Events</ion-option>
+		    </ion-select>
+		</ion-item>
+		-->
+		<div id="version" style="background: #800020; color:#fff; text-align:center;display: none;" side="right" (ionSwipe)="RemoveItem(productSize)">
+			Please upgrade to the newer version of this app now available in Google Playstore and AppStore to enjoy more cool features.
+		</div>	
+		<div>
+		  <ion-segment [(ngModel)]="homeSegment">
+		    <ion-segment-button value="merchants">
+		      <ion-icon name='cart'></ion-icon>	
+		      Merchants
+		    </ion-segment-button>
+		    <ion-segment-button value="offers">
+		      <ion-icon name='pricetag'></ion-icon>
+		      Offers
+		    </ion-segment-button>
+		    <ion-segment-button value="groups">
+		      <ion-icon name='people'></ion-icon>
+		      Groups
+		    </ion-segment-button>
+		    <ion-segment-button value="events">
+		      <ion-icon name='calendar'></ion-icon>
+		      Events
+		    </ion-segment-button>
+		  </ion-segment>
+		</div>
+	<div [ngSwitch]="homeSegment">	
+		<div id="merchants" *ngSwitchCase="'merchants'">
+			<ion-row *ngIf="merchants != []">
+			    <ion-col col-12>
+			    	<div class="home-grid-title background-primary11 color-bright">Recent Merchants</div>
+			    </ion-col>
+		    </ion-row>
+			<ion-row >
+			    <ion-col col-6 *ngFor="let merchant of merchants" (click)="showItemDetails('Merchant', merchant)">
+			    	<div class="card-style home-burgundy">
+			    		<div class="text-center">{{merchant.name}}</div>
+			    	<!-- {{base_url}}{{merchant.avatar || 'images/no_image.png'}} -->
+				    	<div class="image">
+							<img style="height: 150px; width:100%; " src="{{base_url}}{{merchant.avatar || 'images/no_image.png'}} ">
+						</div>
+					</div>
+			    </ion-col>
+			</ion-row>
+		</div>
+		<div id="offers" *ngSwitchCase="'offers'">
+			<ion-row *ngIf="offers != []">
+			    <ion-col col-12>
+			    	<div class="home-grid-title background-primary11 color-bright">Recent Offers</div>
+			    </ion-col>
+		    </ion-row>
+			<ion-row>
+			    <ion-col col-6 *ngFor="let offer of offers;  let i=index" (click)="showOfferDetails('Offer', offer)">
+			    	<div *ngIf="i<4">
+				    	<div class="card-style home-burgundy">
+				    		<div class="text-center">{{offer.name}}</div>
+				    	<!-- {{base_url}}{{offer.avatar || 'images/no_image.png'}} -->
+				    		<div class="image">
+								<img style="height:250px;width:100%;" src="{{base_url}}{{offer.avatar || 'images/no_image.png'}} ">
+							</div>
+							<div class="text-center">{{offer.tagline}}</div>
+						</div>
+					</div>	
+			    </ion-col>
+		  	</ion-row>
+		</div> 	
+		<div id="groups" *ngSwitchCase="'groups'">
+			<ion-row *ngIf="groups != []">
+			    <ion-col col-12>
+			    	<div class="home-grid-title background-primary11 color-bright">Recent Groups</div>
+			    </ion-col>
+		    </ion-row>
+			<ion-row>
+			    <ion-col col-6 *ngFor="let group of groups" (click)="showGroupDetails(group)">
+			    	<div class="card-style home-burgundy">
+			    		<div class="text-center">{{group.name}}</div>
+			    		<div class="image">
+							<img style="height:250px;width:100%;" src="{{base_url}}{{group.avatar || 'images/no_image.png'}} ">
+						</div>
+						
+					</div>
+			    </ion-col>
+			</ion-row>
+		</div>
+		<div id="events" *ngSwitchCase="'events'">	
+			<ion-row *ngIf="events != []">
+			    <ion-col col-12>
+			    	<div class="home-grid-title  background-primary11 color-bright">Recent Events</div>
+			    </ion-col>
+		    </ion-row>
+			<ion-row>
+			    <ion-col col-6 *ngFor="let event of events" (click)="showEventDetails(event)">
+			    	<div class="card-style home-burgundy">
+			    		<div class="text-center">{{event.name}}</div>
+				    	<div class="image">
+							<img style="height:250px;width:100%;" src="{{base_url}}{{event.avatar || 'images/no_image.png'}} ">
+						</div>
+						
+					</div>
+			    </ion-col>
+		  </ion-row>
+		</div>  
+	</div>	  
+	<!-- 
+		<div class="qr">
+			<img src='http://chart.googleapis.com/chart?chs=250x250&cht=qr&chl={{customer_id}}&choe=UTF-8&chld=L|1'>
+		</div>
+	-->
+</ion-content>

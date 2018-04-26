@@ -1,0 +1,109 @@
+<!--
+  Generated template for the Signup page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+  {"customer_id" : "cs1","username" : "omo_luabi","name" : "Alli Abdulateef","address" : "Ajao Estate","phone" : "08092175089","email" : "alli5723@gmail.com","status" : "active","password" : "123","interests" : [1,2]}
+-->
+<ion-content padding class="background">
+
+    <div class="logo">
+    	<img src="assets/images/logo.png"/>
+    </div>
+    <form (ngSubmit)="signup(customer)" #signupForm="ngForm">
+    <ion-list class="mid-pos">
+
+      
+      <ion-item>
+        <ion-label floating>Firstname</ion-label>
+        <ion-input [(ngModel)] ="customer.firstname" name="firstname" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Lastname</ion-label>
+        <ion-input [(ngModel)] ="customer.lastname" name="lastname"  type="text" required></ion-input>
+      </ion-item>
+
+      <!--<ion-item>
+        <ion-label floating style="padding-bottom: 18px;">Date of Birth</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)] ="customer.dob" name="dob" required></ion-datetime>
+      </ion-item>-->
+
+      <!--<ion-item>
+        <ion-label>Country</ion-label>
+        <ion-select [(ngModel)]="customer.country" (ngModelChange)="getStates(customer.country)" name="country" required>
+          <ion-option *ngFor="let country of countriesData" value="{{country.country}}">{{country.country}}</ion-option>
+          <ion-option value="Nigeria">Nigeria</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>State</ion-label>
+        <ion-select [(ngModel)]="customer.state" name="state" required>
+          <ion-option *ngFor="let state of statesData" value="{{state.state}}">{{state.state}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>City</ion-label>
+        <ion-input [(ngModel)] ="customer.city" name="city"  type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Address</ion-label>
+        <ion-input [(ngModel)] ="customer.address" name="address"  type="text" required></ion-input>
+      </ion-item>-->
+
+      
+
+      <ion-item>
+        <ion-label floating>Phone</ion-label>
+        <ion-input [(ngModel)] ="customer.phone" name="phone"  type="text" required></ion-input>
+      </ion-item>
+
+      
+      <!--<ion-item>
+        <ion-label>Sex</ion-label>
+        <ion-select [(ngModel)]="customer.sex" name="sex" required>
+          <ion-option value="Male">Male</ion-option>
+          <ion-option value="Female">Female</ion-option>
+        </ion-select>
+      </ion-item>
+-->
+      
+    <!-- 
+      <ion-item>
+        <ion-label>Interests</ion-label>
+        <ion-select [(ngModel)]="customer.interests" name="interests" multiple="true" cancelText="Nah" okText="Okay!" required>
+          <ion-option *ngFor="let interest of interestsData" value="{{interest.interest_id}}">{{interest.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+    -->
+
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input [(ngModel)] ="customer.email" name="email"  type="email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input [(ngModel)] ="customer.password" name="password"  type="password" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Confirm Password</ion-label>
+        <ion-input [(ngModel)] ="customer.confirm_password" name="confirm_password"  type="password" required></ion-input>
+      </ion-item>
+
+    </ion-list>
+    <p style="font-size: 15px;"><ion-checkbox [(ngModel)]="customer.agreement_checkbox" name="agreement_checkbox"></ion-checkbox> <span style="color: #a8a8a8;"> I have read and agreed to these <span style="color: #68040a;" (click)="openTandC()">Terms and Conditions</span></span></p>
+    <ion-grid>
+        <ion-row style="color:darkgray">
+        </ion-row>
+      <ion-row>
+        <ion-col col-6><button ion-button round type="submit" [disabled]="!signupForm.form.valid">Sign Up</button></ion-col>
+        <ion-col col-6><button ion-button round outline [navPush]="login">Sign In</button></ion-col>
+      </ion-row>
+    </ion-grid>
+    </form>
+</ion-content>

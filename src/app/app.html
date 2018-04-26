@@ -1,0 +1,96 @@
+<!-- <ion-nav [root]="rootPage"></ion-nav>
+ -->
+
+ <ion-menu [content]="mycontent">
+
+    <ion-content>
+    	<div class="" style="height: 170px; padding-top: 15px; border-bottom:1px solid; text-align: center;"  menuClose (click)="openPage(profilePage)">
+            <img src="{{base_url}}{{subscriber_avatar}}" style="height: 100px;width:100px;  border-radius: 100px; margin-left: auto; margin-right: auto;">  
+            <div style="text-align: center; color: white; margin-top: 10px;">
+                <div style="color:#000;">
+                    {{name}}
+                </div>
+                <div style="color:#000;">
+                    {{membership}} 
+                </div>
+            </div> 
+        </div>
+        <ion-list>
+            <ion-item class="menu" menuClose (click)="openPage(homePage)" href >
+                <ion-icon name='home'></ion-icon>
+                 <span class='menu-button' menuClose>
+                    HOME
+                </span>
+            </ion-item>
+            <ion-item class="menu" menuClose (click)="openPage(merchantPage)">
+                <ion-icon name='cart'></ion-icon>
+                <span class='menu-button'>
+                    PARTNERS
+                </span>
+            </ion-item>
+            <ion-item class="menu" menuClose (click)="openPage(groupPage)">
+                <ion-icon name='people'></ion-icon>
+                <span class='menu-button'>
+                MY INTERESTS
+                </span>
+            </ion-item>
+            <ion-item class="menu" menuClose (click)="openPage(eventPage)">
+                <ion-icon name='calendar'></ion-icon>
+                <span class='menu-button'>
+                EVENTS
+                </span>
+            </ion-item>
+            <ion-item class="menu" menuClose (click)="openPage(offerPage)">
+                <ion-icon name='pricetag'></ion-icon>
+                <span class='menu-button'>
+                OFFERS
+                </span>
+            </ion-item>
+            <ion-item class="menu" menuClose (click)="openPage(experiencePage)">
+                <ion-icon name='bonfire'></ion-icon>
+                <span class='menu-button'>
+                EXPERIENCES
+                </span>
+            </ion-item>
+            <ion-item class="menu" menuClose (click)="openPage(claimPage)">
+                <ion-icon name='bowtie'></ion-icon>
+                <span class='menu-button'>
+                REDEEM
+                </span>
+            </ion-item>
+            <ion-item class="menu" menuClose (click)="openPage(transactionsPage)">
+                <ion-icon name='book'></ion-icon>
+                <span class='menu-button'>
+                MY REDEMPTIONS
+                </span>
+            </ion-item>
+            <ion-item class="menu" menuClose (click)="openPage(subscriptionPage)">
+                <ion-icon name='cash'></ion-icon>
+                <span class='menu-button'>
+                SUBSCRIPTIONS
+                </span>
+            </ion-item>
+            <ion-item class="menu" menuClose (click)="openPage(cardPage)">
+                <ion-icon name='card'></ion-icon>
+                <span class='menu-button'>
+                MY CARD
+                </span>
+            </ion-item>
+            <ion-item class="menu" menuClose (click)="openPage(helpPage)">
+                <ion-icon name='help'></ion-icon>
+                <span class='menu-button'>
+                HELP & FAQs
+                </span>
+            </ion-item>
+            <ion-item class="menu" menuClose (click)="logout()">
+                <ion-icon name="log-out"></ion-icon>
+                <span class='menu-button'>
+                LOGOUT
+                </span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+</ion-menu>
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

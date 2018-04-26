@@ -1,0 +1,154 @@
+<!--
+  Generated template for the Claim page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+  	<button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>REDEEM</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+	
+
+
+		<div id="claim1" style="display: block">
+			<ion-list>
+				<div id="merchant-input">
+				  <ion-item class="input_item_plain">
+				    <ion-label floating>Search a vendor</ion-label>
+				    <!--<ion-select [(ngModel)]="transaction.merchant_id" name="merchant_id">
+				      <ion-option value="{{merchant.merchant_id}}" *ngFor="let merchant of all_merchants">{{merchant.merchant_id}} - {{merchant.name}}</ion-option>
+				    </ion-select>-->
+				    <ion-input type="text" [(ngModel)]="transaction.search_merchant"  (ngModelChange)="getMerchantInfo()" name="merchant_id"></ion-input>
+				  </ion-item>
+				  <!--
+				  <ion-item class="input_item_plain">
+				    <button ion-button type="button" (click)="getMerchantInfo()">GO</button>
+				  </ion-item>-->
+				</div>
+			  <ion-item class="input_item_plain">
+			    <ion-label floating>Merchant Name</ion-label>
+			    <ion-input type="text" [(ngModel)]="merchant_name" name="merchant_name" disabled></ion-input>
+			  </ion-item>
+
+			  <ion-item class="input_item_plain">
+			    <ion-label floating>Purchase Amount</ion-label>
+			    <ion-input type="number" [(ngModel)]="transaction.amount" (ngModelChange)="calculateAmountPayable(transaction.offer_id, transaction.amount)" name="amount" required></ion-input>
+			  </ion-item>
+
+			  <!-- <ion-item class="input_item_plain">
+			    <ion-label floating>Purchase Summary</ion-label>
+			    <ion-input type="text" [(ngModel)]="transaction.review" name="review"></ion-input>
+			  </ion-item> -->
+
+			  <ion-item>
+			    <ion-label>Offers</ion-label>
+			    <ion-select [(ngModel)]="transaction.offer_id" name="offer" (ngModelChange)="calculateAmountPayable(transaction.offer_id, transaction.amount)" required>
+			    	<ion-option value="{{offer.offer_id}}" *ngFor="let offer of offers">{{offer.tagline}}</ion-option>
+			    </ion-select>
+			  </ion-item>
+
+			  <ion-item class="input_item_plain">
+			    <ion-label floating>Amount to be paid</ion-label>
+			    <ion-input type="number" [(ngModel)]="transaction.amount_payable" name="amount_payable"  readonly="readonly"></ion-input>
+			  </ion-item>
+
+			  
+
+			  
+
+			</ion-list>
+		   <button ion-button round type="submit" class="darker-black" (click)="verifyUserValidity()">Submit</button>
+		</div>
+		
+		<div id="claim2" style="display: none;" padding>
+			<ion-row padding>
+				<ion-col col-12>
+					<div> 
+						<h3 class="background-primary11" style="text-align: center;">Merchant Verification</h3>
+					</div>
+				</ion-col>	
+				<ion-col col-6>
+					<div class="square-100 round auto_margin" (click)="showPin()"> 
+						<div>
+							<img src="assets/images/ic_keyboard_black_36dp_1x.png"/>
+						</div>
+						Enter Merchant Pin
+					</div>
+				</ion-col>
+			    <ion-col col-6>
+			    	<div class="square-100 round auto_margin" (click)="scanQR()"> 
+						<div>
+							<img src="assets/images/ic_remove_red_eye_black_48dp.png"/>
+						</div>
+						Scan Merchant Code
+					</div>
+				</ion-col>
+			</ion-row>
+			
+			<div id="pin" style="display:none;">
+				<br/>
+				<div class="big_font"><p>Dear {{firstname}},</p></div>
+				<div> 
+					<p>please enter the merchant's PIN to verify your purchase worth <b>N{{transaction.amount}} </b>today {{today | date }}.</p>
+				</div>
+
+				<ion-list>
+
+				  <ion-item>
+				    <ion-label floating>PIN</ion-label>
+				    <ion-input type="number" [(ngModel)]="pin" name="pin"></ion-input>
+				  </ion-item>
+
+				</ion-list>
+				<ion-grid>
+				  <ion-row>
+				    <ion-col col-6><button class="action_button" ion-button (click)="verifyTransaction()">Verify</button></ion-col>
+				    <ion-col col-6><button class="action_button" ion-button outline (click)="cancelVerification()">Cancel</button></ion-col>
+				  </ion-row>
+				</ion-grid>
+			</div>	
+			<ion-row style="margin-top: 100px; padding-right: 20px;">
+				<ion-col col-6>	
+					<button  class="action_button" ion-button outline (click)="cancelVerification()">
+			            <ion-icon class="customIcon" name="arrow-back"> Go back</ion-icon> 
+			        </button>
+				</ion-col>
+			</ion-row>	
+		</div>
+
+		<div id="claim3" style="display: none;" padding>
+			<div class="big_font"><p>Hello {{firstname}},</p></div>
+			<div><p>Kindly rate this merchant and leave a review.</p></div>
+			<ion-list>
+				<ion-item float-center>
+					<rating [(ngModel)]="transaction.rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+			        starIconName="star" nullable="false" >
+					</rating>
+				</ion-item>
+				<ion-item class="input_item_plain">
+				    <ion-label floating>Review</ion-label>
+				    <ion-input type="text" [(ngModel)]="transaction.remarks" name="remarks" required></ion-input>
+				  </ion-item>
+			</ion-list>		
+			<ion-grid>
+			  <ion-row>
+			    <ion-col col-6><button class="action_button" ion-button outline (click)="submitRating(transaction.rate, transaction.remarks, transaction.merchant_id)">Submit</button></ion-col>
+			    <ion-col col-6><button class="action_button" ion-button outline (click)="cancelVerification1()">Cancel</button></ion-col>
+			  </ion-row>
+			</ion-grid>
+		</div>
+
+		
+	
+	
+</ion-content>

@@ -1,0 +1,33 @@
+page-home {
+	themed{
+		background-color:#d80f5a;
+	}
+	.logo{
+		width:150px;
+		height:150px;
+		margin: 30px auto 20px auto;
+	}
+	.logo img{
+		width:100%;
+	}
+	button{
+		width:100%;
+	}
+	/*.background{
+		background-image: url('../../assets/images/bg1.jpg');
+		background-size: 100%;
+	}*/
+	.but-clear{
+	    border-color: white;
+		color: white;
+	}
+	.white-text{
+		color: white;
+	}
+	.mid-pos{
+		margin-top:35px;
+	}
+	.toolbar-background{
+		background-color: #f8f8f8;
+	}
+}

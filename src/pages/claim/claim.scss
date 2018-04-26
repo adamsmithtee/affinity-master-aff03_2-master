@@ -1,0 +1,33 @@
+page-claim {
+	.bg{
+		background-color: rgba(181, 128, 54, 0.18);
+	}
+	.action_button{
+		width:100%;
+	}
+	.item-inner{
+		box-shadow: none;
+	}
+	.square-100{
+		width: 120px;
+		height : 120px;
+		padding-top : 18px;
+		text-align:center;
+	}
+	.round{
+		border-radius: 50%;
+	    border: 2px solid #b58036;
+	    background-color: rgba(255, 255, 255, 0.90);
+	}
+	.square-100 div img{
+		height:36px;
+	}
+	.round:hover,.round:active{
+		background-color: #b58036;
+		color:white;
+	}
+	.auto_margin{
+	    margin-right: auto;
+    	margin-left: auto;
+	}
+}

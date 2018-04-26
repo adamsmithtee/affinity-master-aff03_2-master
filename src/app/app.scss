@@ -1,0 +1,240 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+	
+	body{
+		// font-family:georgia;
+		font-family: 'Comfortaa',cursive;
+		-webkit-user-select: text;
+		-moz-user-select: text;
+		-ms-user-select: text;
+		user-select: text;
+	}
+
+	.home-divider{
+		font-size: 11px;
+		// font-family : calibri;
+		font-family: 'Comfortaa',cursive;
+	}
+	
+	.default{
+		background-color:  #000000;
+		color: #bfbb88;
+		font-family: 'Comfortaa',cursive;
+	}
+	ion-item.menu:active{
+	  background-color: #68040a;
+	  color:white;
+	}
+
+	ion-item.menu:hover{
+	  background-color: #68040a;
+	  color:white;
+	}
+
+	.img{
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	.menu-inner{
+		width:230px;
+	}
+	.menu-button{
+		//text-align:center;
+		margin-left:10px;
+	}
+	.big_font{
+		font-size : 18px;
+		font-weight : bolder;
+	}
+	ion-item{
+		background-color: transparent;
+	}
+	.input_item_black{
+		background-color: rgba(0, 0, 0, 0.40);
+		color: white;
+	}
+	.input_item_plain{
+		background-color: rgba(0, 0, 0, 0);
+	}
+	ion-content{
+		//background-image : url('../assets/images/black-background.jpg');
+	}
+	.card-style{
+		background-color : rgba(225, 73, 114, 0.18);
+	}
+	// .toolbar-background{
+	// 	background-color : #b00734;
+	// }
+	.toolbar-title{
+		color: white;
+	}
+	.back-button{
+		color: white;
+	}
+	.bg-bright{
+		background-color: white;
+	}
+	.text-center{
+		text-align:center;
+		padding:5px;
+		color: #fff;
+		font-size: 10px;
+	}
+	// .color-bright{
+	// 	color: #68040a;
+	// }
+	.border-bright{
+		border-color: white;
+	}
+	// ** .color-primary{
+	// 	color: #b00734;
+	// }
+	.background-primary{
+		background-color: #68040a;
+		border: solid 1px #800020;
+		// font-family: 'Great Vibes', cursive !important;
+		font-family: 'Comfortaa',cursive;
+	    color: #fff;
+    	padding-top: 2px;
+    	font-size: 29px !important;
+    	padding-bottom: 0;
+	}
+	.background-primary11{
+		background-color: #68040a;
+		// font-family: 'Great Vibes', cursive !important;
+		font-family: 'Comfortaa',cursive;
+	    font-size: 28px !important;
+	    letter-spacing: 1px;
+    	vertical-align: baseline;
+    	line-height: 1.5em;
+    	height: 38px;
+    	color: #E0E0E0;
+    	padding-top: 2px;
+	}
+
+	ion-item.menu {
+	    // background-color: #1a1a1a;
+		color: #68040a;
+		border-right: 3px solid #68040a;
+	}
+	.light-black{
+		background:#555555;
+		color:#fff;
+	}
+	.darker-black{
+		background:#68040a;
+		color:#fff;
+	}
+	.background-primary-2{
+		background-color: #68040a;
+	}
+	.background-secondary{
+		background-color: #b58036;
+	}
+	.background-patterned-1{
+		background-image : url('../assets/images/white_bg.jpg');
+	}
+	.background-gradient{
+		background: linear-gradient(110deg, #b00734 0%, #D61C4E 51%, #b00734 75%);
+		/* background: red; For browsers that do not support gradients */
+	    background: -webkit-linear-gradient(110deg, #b00734 0%, #D61C4E 51%, #6A001C 75%); /* For Safari 5.1 to 6.0 */
+	    background: -o-linear-gradient(#900027 0%, #D61C4E 51%, #6A001C 75%); /* For Opera 11.1 to 12.0 */
+	    background: -moz-linear-gradient(#900027 0%, #D61C4E 51%, #6A001C 75%); /* For Firefox 3.6 to 15 */
+	}
+	.background-gradient-2{
+		background: linear-gradient(110deg, #b00734 0%, #D61C4E 51%, #b58036 75%);
+		/* background: red; For browsers that do not support gradients */
+	    background: -webkit-linear-gradient(#900027 0%, #D61C4E 51%, #b58036 75%); /* For Safari 5.1 to 6.0 */
+	    background: -o-linear-gradient(#900027 0%, #D61C4E 51%, #b58036 75%); /* For Opera 11.1 to 12.0 */
+	    background: -moz-linear-gradient(#900027 0%, #D61C4E 51%, #b58036 75%); /* For Firefox 3.6 to 15 */
+	}
+	.half{
+		width: 48%;
+	}
+	.full{
+		width: 100%;
+	}
+	.clear-float{
+		clear:both;
+	}
+	.card-style{
+	    background-color: rgba(225, 73, 114, 0.18);
+	    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	    transition: 0.3s;
+	    margin-bottom: 10px;
+	}
+
+	.head_div img {
+		height:300px !important;
+	}
+// **********************************************************
+	.toolbar-md-primary .toolbar-background-md {
+    background: #68040a;
+    color:white;
+	}
+// ************************************************************
+	#black-segment{
+	background:#161616;
+	color:#fff;
+	}
+
+	.segment-md .segment-button {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 0 6px;
+    width: 0;
+    height: 4.2rem;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 4rem;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #68040a;
+    opacity: 0.7;
+    transition: 100ms all linear;
+	}
+	// .toolbar-md-primary .bar-button-default-md, .toolbar-md-primary .bar-button-outline-md, .toolbar-md-primary .toolbar-title-md {
+    // color: #a67f42;
+	// }
+	// .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+    // color: #a67f42;
+    // }
+	// .tab-button-text{
+	// 	color:#a67f42;
+	// }
+	.menu{
+		color: #a67f42;
+	}
+	.toolbar-background {
+    background-color: #68040a;
+	}	
+	.page-claim .square-100 {
+    width: 120px !important;
+    height: 120px !important;
+    }  
+    
+    .toast-message {
+    	background: #68040a;
+		text-align: center;
+	
+    }

@@ -1,0 +1,69 @@
+<!--
+  Generated template for the Claim page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+  	<button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>TRANSACTIONS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+	<div class="claimtop" style="height:100px; text-align: center; display: block;" padding>
+			<p id="savedTotal" style="font-size: 26px; color: #909090; font-family: gregorian; visibility: hidden; margin-top: 10px;">Saved <span style="font-size: 38px; color: #800020;">₦</span><span class="count" style="font-size: 38px; color: #800020;">{{savedTotal}} </span>   till date</p>
+			
+		<!--
+			<ion-col col-6>
+				<div class="square-100 round auto_margin" (click)="showInput()"> 
+					<div>
+						<img src="assets/images/ic_keyboard_black_36dp_1x.png"/>
+					</div>
+					Enter Code
+				</div>
+			</ion-col>
+		    <ion-col col-6>
+		    	<div class="square-100 round auto_margin" (click)="scanQR()"> 
+					<div>
+						<img src="assets/images/ic_remove_red_eye_black_48dp.png"/>
+					</div>
+					Scan Code
+				</div>
+			</ion-col>-->
+	</div>
+
+<div class="background-gradient-2 claimtop" style="height: 5px">
+
+</div>
+
+<ion-list>
+    <ion-item *ngFor="let transactionHistoryData of transactionHistory" >
+      <ion-thumbnail item-left>
+      <!-- {{base_url}}{{group.avatar || 'images/no_image.png'}} -->
+      <div class="image-small">
+        <img src="{{base_url}}{{transactionHistoryData.avatar || 'images/no_image.png'}}">
+        </div>
+      </ion-thumbnail>
+      <h2><b>{{transactionHistoryData.name}}</b> <span style="float: right;"><ion-icon id="hideIcon" (click)= "hideTransaction(transactionHistoryData.transaction_id)" style="color:#800020; font-size:30px;" name="close-circle"></ion-icon></span>
+      </h2>
+      
+      <div>
+        <p style="color:#808080;">{{transactionHistoryData.created_at}}</p>
+        <p style="color:#808080;">Bill ₦{{transactionHistoryData.amount | number}} </p>
+        <p style="color:#808080;">Paid ₦{{transactionHistoryData.amount - (transactionHistoryData.offer/100 * transactionHistoryData.amount) | number}} </p>
+        <p><span class="home-grid-title" style="font-size: 26px; color: #800020; font-family: 'gregorian;" float-right> ₦{{transactionHistoryData.offer/100 * transactionHistoryData.amount | number}} </span><span float-right style="color:#808080;padding-top: 10px;"> Saved </span></p>
+      </div>
+    </ion-item>
+</ion-list>
+	
+	
+	
+	
+</ion-content>

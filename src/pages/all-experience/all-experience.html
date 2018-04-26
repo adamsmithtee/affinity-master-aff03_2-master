@@ -1,0 +1,79 @@
+
+<!--
+  Generated template for the EventPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      ALL EXPERIENCES
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="card-background-page">
+<!--
+	  <ion-card *ngFor="let group of groups" >
+	    <img src="assets/images/ev3.jpg"/>
+	    <div class="card-title">{{group.name}}</div>
+	    <div class="card-subtitle">{{group.details}}</div>
+	  </ion-card>
+
+		-->
+	<!-- <ion-card (click)="viewEvent()">
+	  <img src="assets/images/ev3.jpg"/>
+	  <div class="card-title">Featured Groups</div>
+	  <div class="card-subtitle">We are a group of conservatives</div>
+	</ion-card> -->
+
+	<ion-list>
+		<ion-item-sliding *ngFor="let experience of experiences">
+		  <ion-item (click)="showDirective()">
+		    <ion-avatar item-left>	
+		    <!-- {{base_url}}{{group.avatar || 'images/no_image.png'}} -->
+			    <div class="image-small">
+			      <img src="{{base_url}}{{experience.avatar || 'images/no_image.png'}}">
+		      	</div>
+		    </ion-avatar>	
+		    <h2>{{experience.experience_name}}</h2>
+		    <p>{{experience.details}}</p>
+		   </ion-item> 
+		    <ion-item-options side="right">
+		      <button ion-button class="darker-black" (click)="showDetails(experience)">
+		        <ion-icon name="text"></ion-icon>
+		        Details
+		      </button>	
+		      <button ion-button class="light-black" (click)="openUrl(experience.experience_id, experience.price)">
+		        <ion-icon name="text"></ion-icon>
+		        Buy Experience
+		      </button>
+		   </ion-item-options>  
+		    <!-- <button color="primary" ion-button clear item-right (click)="joinExperience(experience.experience_id)" *ngIf="experience.customer_id == null">JOIN</button>-->
+		</ion-item-sliding>
+	</ion-list>
+
+	<!--<div id="details" style="display: none" padding>
+		<div class="big_font"><h2>Dear Merchant,</h2></div>
+		<br/>
+		<div class="big_font"><h3>Please Enter your PIN to Verify your sale of </h3></div>
+
+		<ion-list>
+
+		  <ion-item>
+		    <ion-label floating>PIN</ion-label>
+		    <ion-input type="number" [(ngModel)]="pin" name="pin"></ion-input>
+		  </ion-item>
+
+		</ion-list>
+		<ion-grid>
+		  <ion-row>
+		    <ion-col col-6><button class="action_button" ion-button outline (click)="closeDetails()">Close</button></ion-col>
+		  </ion-row>
+		</ion-grid>
+	</div> -->
+
+</ion-content>
